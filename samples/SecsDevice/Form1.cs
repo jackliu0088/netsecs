@@ -163,7 +163,9 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml()}\n");
+                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
@@ -172,7 +174,9 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml()}\n");
+                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
@@ -181,7 +185,9 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Blue;
-                    _form.richTextBox1.AppendText($"{msg}\n");
+                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
@@ -190,7 +196,9 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Green;
-                    _form.richTextBox1.AppendText($"{msg}\n");
+                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
@@ -199,10 +207,12 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Red;
-                    _form.richTextBox1.AppendText($"{msg}\n");
-                    _form.richTextBox1.AppendText($"{message?.ToSml()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{message?.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionColor = Color.Gray;
-                    _form.richTextBox1.AppendText($"{ex}\n");
+                    _form.richTextBox1.AppendText($"{ex + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
@@ -211,7 +221,9 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Yellow;
-                    _form.richTextBox1.AppendText($"{msg}\n");
+                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
+                    _form.richTextBox1.ScrollToCaret();
                 });
             }
 
