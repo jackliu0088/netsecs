@@ -1,5 +1,6 @@
 ﻿using Secs4Net;
 using Secs4Net.Json;
+using Secs4Net.Sml;
 using System.Text.Json;
 
 namespace SecsMessageVisuallizer.ViewModel
@@ -41,6 +42,7 @@ namespace SecsMessageVisuallizer.ViewModel
         };
 
         public override string ToString()
-            => JsonSerializer.Serialize(_secsMsg, JsonOptions);
+            => _secsMsg.ToSml();
+            //=> JsonSerializer.Serialize(_secsMsg, JsonOptions);
     }
 }

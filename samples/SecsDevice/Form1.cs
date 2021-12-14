@@ -3,7 +3,9 @@ using Secs4Net;
 using Secs4Net.Sml;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -111,7 +113,8 @@ namespace SecsDevice
             try
             {
                 var reply = await _secsGem.SendAsync(txtSendPrimary.Text.ToSecsMessage());
-                txtRecvSecondary.Text = reply.ToSml();
+                if(reply != null)
+                    txtRecvSecondary.Text = reply.ToSml();
             }
             catch (SecsException ex)
             {
@@ -163,7 +166,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -174,7 +177,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -196,7 +199,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Green;
-                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -207,10 +210,10 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Red;
-                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.AppendText($"{message?.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionColor = Color.Gray;
-                    _form.richTextBox1.AppendText($"{ex + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{ex + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -221,7 +224,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Yellow;
-                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -238,6 +241,49 @@ namespace SecsDevice
                 Error(msg, null, ex);
             }
 #endif
+        }
+
+        private SecsGem? Get_secsGem()
+        {
+            return _secsGem;
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            
+
+            if (_secsGem is null || _connector?.State != ConnectionState.Selected)
+            {
+                MessageBox.Show("Gem未实例化/未连接");
+                return;
+            }
+
+            try
+            {
+
+                var s = Encoding.Default.GetBytes(txtSn.Text.Trim());
+                var f = Encoding.Default.GetBytes(txtFn.Text.Trim());
+
+                var S1F15 = new SecsMessage(1, 5, true)
+                {
+                    //Name = "createS1f14",
+                    Name = "aaas",
+                    SecsItem = null
+
+                };
+                var str= S1F15.ToSml();
+#if DEBUG
+                Debug.Print(str);
+#endif
+
+                var reply = await _secsGem.SendAsync(S1F15);
+                txtRecvSecondary.Text = reply.ToSml();
+            }
+            catch (SecsException ex)
+            {
+                txtRecvSecondary.Text = ex.Message;
+            }
+
         }
     }
 }

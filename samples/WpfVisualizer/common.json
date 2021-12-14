@@ -2,136 +2,49 @@
   {
     "S": 1,
     "F": 1,
-    "ReplyExpected": false,
-    "Name": "ABT_S1"
-  },
-  {
-    "S": 1,
-    "F": 1,
     "ReplyExpected": true,
-    "Name": "AreYouThere"
+    "Name": "Are You There Request HOST<->EQP"
   },
   {
     "S": 1,
-    "F": 1,
+    "F": 2,
     "ReplyExpected": false,
-    "Name": "OLD",
-    "SecsItem": {
-      "List": [
-        {
-          "ASCII": ""
-        },
-        {
-          "ASCII": ""
-        },
-        {
-          "U1": [
-            1,
-            2
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": false,
-    "Name": "OLD_H",
+    "Name": "On Line Data HOST->EQP",
     "SecsItem": {
       "List": []
     }
   },
   {
     "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "CheckCJSpace",
+    "F": 2,
+    "ReplyExpected": false,
+    "Name": "On Line Data HOST<-EQP",
     "SecsItem": {
       "List": [
         {
-          "U2": [
-            18001
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "GetAllCJ",
-    "SecsItem": {
-      "List": [
-        {
-          "U2": [
-            18000
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "QueryLoadPortAccessMode",
-    "SecsItem": {
-      "List": [
-        {
-          "U2": [
-            18011
-          ]
+          "ASCII": "EquipmentName"
         },
         {
-          "U2": [
-            18012
-          ]
-        },
-        {
-          "U2": [
-            18013
-          ]
+          "ASCII": "Version"
         }
       ]
     }
   },
   {
     "S": 1,
-    "F": 1,
+    "F": 3,
     "ReplyExpected": true,
-    "Name": "QueryOnlineSubStatus",
+    "Name": "Selected Equipment Status Request HOST->EQP",
     "SecsItem": {
       "List": [
         {
-          "U2": [
+          "U4": [
             1
           ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "QueryPortStatus",
-    "SecsItem": {
-      "List": [
-        {
-          "U2": [
-            18026
-          ]
         },
         {
-          "U2": [
-            18027
-          ]
-        },
-        {
-          "U2": [
-            18028
+          "U4": [
+            9999
           ]
         }
       ]
@@ -139,34 +52,27 @@
   },
   {
     "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "SVNR",
-    "SecsItem": {
-      "List": [
-        {
-          "U1": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
+    "F": 4,
     "ReplyExpected": false,
-    "Name": "SVNRR",
+    "Name": "Selected Equipment Status Data HOST<-EQP LIST<1>-LIST<N>",
     "SecsItem": {
       "List": [
         {
           "List": [
             {
-              "U1": []
-            },
+              "U4": [
+                1
+              ]
+            }
+          ]
+
+        },
+        {
+          "List": [
             {
-              "ASCII": ""
-            },
-            {
-              "ASCII": ""
+              "U4": [
+                999
+              ]
             }
           ]
         }
@@ -175,24 +81,13 @@
   },
   {
     "S": 1,
-    "F": 1,
+    "F": 11,
     "ReplyExpected": true,
-    "Name": "EstablishCommunicationsRequest_Host",
-    "SecsItem": {
-      "List": []
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": false,
-    "Name": "S1F14EstablishCommunicationsRequestAck_Host_Ack",
+    "Name": "Status Variable Namelist Request HOST->EQP LIST<1>-LIST<N>",
     "SecsItem": {
       "List": [
         {
-          "Binary": [
-            0
-          ]
+          "List": []
         },
         {
           "List": []
@@ -202,121 +97,9 @@
   },
   {
     "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "RequestOffline"
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "RequestOnline"
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "CR",
-    "SecsItem": {
-      "List": [
-        {
-          "ASCII": "MDLN"
-        },
-        {
-          "ASCII": "Softrev"
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": true,
-    "Name": "CR_H",
-    "SecsItem": {
-      "List": []
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
+    "F": 12,
     "ReplyExpected": false,
-    "Name": "CRA",
-    "SecsItem": {
-      "List": [
-        {
-          "Binary": [
-            0
-          ]
-        },
-        {
-          "List": [
-            {
-              "ASCII": ""
-            },
-            {
-              "ASCII": ""
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 1,
-    "F": 1,
-    "ReplyExpected": false,
-    "Name": "CRA_H",
-    "SecsItem": {
-      "List": [
-        {
-          "Binary": [
-            0
-          ]
-        },
-        {
-          "List": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "ABT_S2"
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "ECR",
-    "SecsItem": {
-      "List": [
-        {
-          "U1": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "ECD",
-    "SecsItem": {
-      "List": [
-        {
-          "Binary": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "ECS",
+    "Name": "Status Variable Namelist Reply HOST<-EQP LIST<N>",
     "SecsItem": {
       "List": [
         {
@@ -327,7 +110,10 @@
               ]
             },
             {
-              "Binary": []
+              "ASCII": "Status variable name"
+            },
+            {
+              "ASCII": "Unit recognition system"
             }
           ]
         }
@@ -335,331 +121,81 @@
     }
   },
   {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "ECA",
-    "SecsItem": {
-      "Binary": [
-        0
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "ECA_Nak",
-    "SecsItem": {
-      "Binary": [
-        1
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
+    "S": 1,
+    "F": 13,
     "ReplyExpected": true,
-    "Name": "DTR"
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "DTD",
-    "SecsItem": {
-      "ASCII": ""
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "TIS",
+    "Name": "Establish Communication Request HOST<-EQP",
     "SecsItem": {
       "List": [
         {
-          "U1": []
+          "ASCII": "Model number"
         },
         {
-          "ASCII": ""
-        },
-        {
-          "U1": []
-        },
-        {
-          "U1": []
-        },
-        {
-          "List": [
-            {
-              "U1": []
-            }
-          ]
+          "ASCII": "Revision number of software"
         }
       ]
     }
   },
   {
-    "S": 2,
-    "F": 2,
+    "S": 1,
+    "F": 14,
     "ReplyExpected": false,
-    "Name": "TIA",
-    "SecsItem": {
-      "Binary": [
-        0
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "TIA_Nak",
-    "SecsItem": {
-      "Binary": [
-        1
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "LDR",
-    "SecsItem": {
-      "Binary": []
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "LDD",
-    "SecsItem": {
-      "Binary": [
-        0
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "ECNR",
-    "SecsItem": {
-      "List": [
-        {
-          "U1": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "ECN",
-    "SecsItem": {
-      "List": [
-        {
-          "List": [
-            {
-              "U1": []
-            },
-            {
-              "ASCII": ""
-            },
-            {
-              "Binary": []
-            },
-            {
-              "Binary": []
-            },
-            {
-              "Binary": []
-            },
-            {
-              "ASCII": ""
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "DTS",
-    "SecsItem": {
-      "ASCII": ""
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "DTA",
-    "SecsItem": {
-      "Binary": [
-        0
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "DTA_Nak",
-    "SecsItem": {
-      "Binary": [
-        1
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "DMBI",
-    "SecsItem": {
-      "List": [
-        {
-          "U1": [
-            0
-          ]
-        },
-        {
-          "U1": [
-            0
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "DMBG",
-    "SecsItem": {
-      "Binary": [
-        0
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "DMBG_Nak",
-    "SecsItem": {
-      "Binary": [
-        1
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "HCS",
-    "SecsItem": {
-      "List": [
-        {
-          "ASCII": ""
-        },
-        {
-          "List": [
-            {
-              "List": [
-                {
-                  "ASCII": ""
-                },
-                {
-                  "Binary": []
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "S2F41ChangeOnlineSubState",
-    "SecsItem": {
-      "List": [
-        {
-          "ASCII": "CONTROLMODECHANGE"
-        },
-        {
-          "List": [
-            {
-              "List": [
-                {
-                  "ASCII": "REMOTEMODE"
-                },
-                {
-                  "U1": [
-                    1
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "HCA",
+    "Name": "Establish Communication Request Acknowledge HOST->EQP",
     "SecsItem": {
       "List": [
         {
           "Binary": [
             0
-          ]
-        },
-        {
+          ],
           "List": []
         }
       ]
     }
   },
   {
-    "S": 2,
-    "F": 2,
+    "S": 1,
+    "F": 15,
+    "ReplyExpected": true,
+    "Name": "Request OFF-LINE HOST->EQP"
+  },
+  {
+    "S": 1,
+    "F": 16,
     "ReplyExpected": false,
-    "Name": "HCA_Nak",
+    "Name": "OFF-LINE Acknowledge HOST<=EQP",
+    "SecsItem": {
+      "Binary": [
+        0
+      ]
+    }
+  },
+  {
+    "S": 1,
+    "F": 17,
+    "ReplyExpected": true,
+    "Name": "Request ON-LINE HOST->EQP"
+  },
+  {
+    "S": 1,
+    "F": 18,
+    "ReplyExpected": false,
+    "Name": "ON-LINE Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [
+        0
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 13,
+    "ReplyExpected": true,
+    "Name": "Equipment Constant Request HOST->EQP",
     "SecsItem": {
       "List": [
         {
-          "Binary": [
+          "U4": [
             1
-          ]
-        },
-        {
-          "List": [
-            {
-              "List": [
-                {
-                  "ASCII": ""
-                },
-                {
-                  "Binary": [
-                    2
-                  ]
-                }
-              ]
-            }
           ]
         }
       ]
@@ -667,27 +203,82 @@
   },
   {
     "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "DisableSpoolingForAllStreams",
+    "F": 14,
+    "ReplyExpected": false,
+    "Name": "Equipment Constant Data HOST<-EQP",
     "SecsItem": {
       "List": []
     }
   },
   {
     "S": 2,
-    "F": 2,
+    "F": 15,
     "ReplyExpected": true,
-    "Name": "DisableSpoolingForFunctions",
+    "Name": "New Equipment Constant Send HOST->EQP LIST<N>",
     "SecsItem": {
       "List": [
         {
+          "U4": [
+            1
+          ]
+        },
+        {
+          "U4": [
+            1
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 16,
+    "ReplyExpected": false,
+    "Name": "Equipment Constant Send Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [
+        0
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 17,
+    "ReplyExpected": true,
+    "Name": "Date and Time Reques HOST->EQP"
+  },
+  {
+    "S": 2,
+    "F": 18,
+    "ReplyExpected": false,
+    "Name": "Date and Time Data HOST<-EQP",
+    "SecsItem": {
+      "ASCII": "YYYYMMDDhhmmsscc"
+    }
+  },
+  {
+    "S": 2,
+    "F": 23,
+    "ReplyExpected": true,
+    "Name": "Trace Initialize Send HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "ASCII": "hhmmss"
+        },
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "U4": [ 1111 ]
+        },
+        {
           "List": [
             {
-              "U1": []
-            },
-            {
-              "List": []
+              "U4": [ 1111 ]
             }
           ]
         }
@@ -696,78 +287,188 @@
   },
   {
     "S": 2,
-    "F": 2,
+    "F": 24,
+    "ReplyExpected": false,
+    "Name": "Trace Initialize Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [0]
+    }
+  },
+  {
+    "S": 2,
+    "F": 29,
     "ReplyExpected": true,
-    "Name": "RSSF",
+    "Name": "Equipment Constant Namelist Request HOST->EQP LIST<N> ITEM:I4_n",
     "SecsItem": {
       "List": [
         {
+          "U4": [ 1111 ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 30,
+    "ReplyExpected": false,
+    "Name": "Equipment Constant Namelist HOST<-EQP LIST<N> ITEM:I4_N,A_N,N_N,N_N,N_N,A_N",
+    "SecsItem": {
+      "List": [
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "ASCII": "hhmmss"
+        },
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "U4": [ 1111 ]
+        },
+        {
+          "ASCII": "hhmmss"
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 31,
+    "ReplyExpected": true,
+    "Name": "Date and Time Set Request HOST->EQP",
+    "SecsItem": {
+      "ASCII": "YYYYMMDDhhmmsscc"
+    }
+  },
+  {
+    "S": 2,
+    "F": 32,
+    "ReplyExpected": false,
+    "Name": "Date and Time Set Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [0]
+    }
+  },
+  {
+    "S": 2,
+    "F": 33,
+    "ReplyExpected": true,
+    "Name": "Define Report HOST->EQP LIST<2> ITEM:I4,LIST<A>(I4,LIST<B>(I4_N))",
+    "SecsItem": {
+      "List": [
+        {
+          "U4": [ 1111 ]
+        },
+        {
           "List": [
             {
-              "U1": []
+              "List": [
+                {
+                  "U4": [ 2222 ]
+                },
+                {
+                  "List": [
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    }
+                  ]
+                }
+              ]
             },
             {
               "List": [
                 {
-                  "U1": []
+                  "U4": [ 2222 ]
+                },
+                {
+                  "List": [
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    }
+                  ]
                 }
               ]
             }
           ]
         }
+        
       ]
     }
   },
   {
     "S": 2,
-    "F": 2,
+    "F": 34,
     "ReplyExpected": false,
-    "Name": "RSA",
+    "Name": "Define Report Acknowledge HOST<-EQP",
     "SecsItem": {
-      "List": [
-        {
-          "Binary": [
-            0
-          ]
-        },
-        {
-          "List": []
-        }
+      "Binary": [
+        0
       ]
     }
   },
   {
     "S": 2,
-    "F": 2,
-    "ReplyExpected": false,
-    "Name": "RSA_Nak",
+    "F": 35,
+    "ReplyExpected": true,
+    "Name": "Link Event Report HOST->EQP LIST<2> ITEM:I4,LIST<A>(I4,LIST<B>(I4_N))",
     "SecsItem": {
       "List": [
         {
-          "Binary": [
-            1
-          ]
+          "U4": [ 1111 ]
         },
         {
           "List": [
             {
               "List": [
                 {
-                  "U1": [
-                    0
-                  ]
-                },
-                {
-                  "Binary": [
-                    1
-                  ]
+                  "U4": [ 2222 ]
                 },
                 {
                   "List": [
                     {
-                      "U1": [
-                        0
-                      ]
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "List": [
+                {
+                  "U4": [ 2222 ]
+                },
+                {
+                  "List": [
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
+                    },
+                    {
+                      "U4": [ 3333 ]
                     }
                   ]
                 }
@@ -780,9 +481,490 @@
   },
   {
     "S": 2,
-    "F": 2,
+    "F": 36,
+    "ReplyExpected": false,
+    "Name": "Link Event Report Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [
+        0 
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 37,
     "ReplyExpected": true,
-    "Name": "DVLA",
+    "Name": "Enable/Disable Event Report HOST->EQP LIST<2> ITEM:BOOL,LIST<N>(INT_N)",
+    "SecsItem": {
+      "List": [
+        {
+          "Boolean": [true]
+        },
+        {
+          "List": [
+            {
+              "U4": [ 3333 ]
+            }
+          ]
+        }
+        
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 38,
+    "ReplyExpected": false,
+    "Name": "Enable / Disable Event Report Acknowledge HOST<-EQP",
+    "SecsItem": {
+      "Binary": [ 1 ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 39,
+    "ReplyExpected": true,
+    "Name": "Multi-block Inquire HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "U4": [
+            0
+          ]
+        },
+        {
+          "U4": [
+            0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 40,
+    "ReplyExpected": false,
+    "Name": "Multi-block Grant HOST<-EQP",
+    "SecsItem": {
+      "Binary": [
+        0
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Download Recipe Data) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "DLRECIPE"
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Recipe  "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Upload Recipe Data) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "ULRECIPE"
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Recipe  "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Slot Measurement Recipe Setup) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "SLOTMAP "
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "SlotMap1"
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            },
+            {
+              "List": [
+                {
+                  "ASCII": "SlotMap2"
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Process Start) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "PSTART  "
+        },
+        {
+          "List": []
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Action Manager Command) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "ACTMGR  "
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Cmd     "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Load Wafer Command) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "LOADWFR "
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "LoadPort"
+                },
+                {
+                  "U4": [
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "List": [
+                {
+                  "ASCII": "Slot    "
+                },
+                {
+                  "U4": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Unload Wafer Command) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "UNLWFR  "
+        },
+        {
+          "List": []
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Change Signal Light) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "CHGLIGHT"
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Color   "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            },
+            {
+              "List": [
+                {
+                  "ASCII": "Property"
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Change Signal Buzzer) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "CHGBUZZ "
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Buzzer  "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Local) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "LOCAL   "
+        },
+        {
+          "List": []
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Check Recipe Data) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "CHKRECIP"
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Recipe  "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Process Abort) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "PABORT  "
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "PortNo  "
+                },
+                {
+                  "U4": [
+                    1
+                  ]
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 41,
+    "ReplyExpected": true,
+    "Name": "Host Command Send (Request Time Stamp of Device File) HOST->EQP",
+    "SecsItem": {
+      "List": [
+        {
+          "ASCII": "REQDEVTM"
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "DevFile "
+                },
+                {
+                  "ASCII": ""
+                }
+
+              ]
+            },
+            {
+              "List": [
+                {
+                  "ASCII": "Media   "
+                },
+                {
+                  "U4": [
+                    1
+                  ]
+                }
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 42,
+    "ReplyExpected": false,
+    "Name": "Host Command Acknowledge HOST<-EQP LIST<2> ITEM:Binary,LIST<N>(ASC,Binary)",
+    "SecsItem": {
+      "List": [
+        {
+          "Binary": [
+            1
+          ]
+        },
+        {
+          "List": [
+            {
+              "List": [
+                {
+                  "ASCII": "Media   "
+                },
+                {
+                  "Binary": [
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 43,
+    "ReplyExpected": true,
+    "Name": "Reset Spooling Streams and Functions",
     "SecsItem": {
       "List": [
         {
@@ -827,43 +1009,72 @@
   },
   {
     "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "DVLA_1",
+    "F": 44,
+    "ReplyExpected": false,
+    "Name": "Reset Spooling Acknowledge HOST<-EQP LIST<2> ITEM:Binary,LIST<N>(U4,Binary,LIST<M>(U4_N))",
     "SecsItem": {
       "List": [
         {
-          "U1": [
-            0
-          ]
-        },
-        {
-          "List": []
-        }
-      ]
-    }
-  },
-  {
-    "S": 2,
-    "F": 2,
-    "ReplyExpected": true,
-    "Name": "DVLA_2",
-    "SecsItem": {
-      "List": [
-        {
-          "U1": [
+          "Binary": [
             0
           ]
         },
         {
           "List": [
             {
+              "Binary": [
+                0
+              ]
+            },
+            {
+              "U4": [
+                0
+              ]
+            },
+            {
               "List": [
                 {
-                  "U1": []
+                  "U4": [
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "S": 2,
+    "F": 45,
+    "ReplyExpected": true,
+    "Name": "Define Variable Limits Attributes HOST->EQP LIST<2> ITEM:U4,LIST<M>(U4,LIST<N>(Binary,LIST<0 or 2>(*,*)))",
+    "SecsItem": {
+      "List": [
+        {
+          "U4": []
+        },
+        {
+          "List": [
+            {
+              "U4": []
+            },
+            {
+              "List": [
+                {
+                  "Binary": []
                 },
                 {
-                  "List": []
+                  "List": [
+                    {
+                      "U1": []
+                    },
+                    {
+                      "U1": []
+                    }
+
+                  ]
                 }
               ]
             }
@@ -1803,6 +2014,35 @@
     "F": 6,
     "ReplyExpected": false,
     "Name": "ABT_S6"
+  },
+  {
+    "S": 6,
+    "F": 11,
+    "ReplyExpected": false,
+    "Name": "Event Report Send (Equipment Status Change)",
+    "SecsItem": {
+      "List": [
+        {
+          "I4": []
+        },
+        {
+          "I4": []
+        },
+        {
+          "List": [
+            {
+              "I4": [],
+              "List": [
+                {
+                  "I4": []
+                }
+              ]
+            }
+
+          ]
+        }
+      ]
+    }
   },
   {
     "S": 6,

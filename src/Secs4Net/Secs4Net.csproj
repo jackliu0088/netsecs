@@ -5,6 +5,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <IsTrimmable>false</IsTrimmable>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
