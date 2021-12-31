@@ -202,9 +202,9 @@ public static class JsonReader
     {
         var options = new JsonSerializerOptions
         {
-            Converters = {
-                new ItemJsonConverter()
-            }
+            Converters = {new ItemJsonConverter()}, 
+            ReadCommentHandling = JsonCommentHandling.Skip,
+            AllowTrailingCommas = true,
         };
         using var jsonStreamReader = new Utf8JsonStreamReader(stream, 4096);
         jsonStreamReader.Read(); // move to array start

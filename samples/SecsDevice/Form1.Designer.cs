@@ -36,6 +36,10 @@
             System.Windows.Forms.Button btnSendPrimary;
             System.Windows.Forms.Button btnReplySecondary;
             System.Windows.Forms.Button btnReplyS9F1;
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFn = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmbRecv = new System.Windows.Forms.ComboBox();
             this.txtSn = new System.Windows.Forms.TextBox();
             this.btnUserSeed = new System.Windows.Forms.Button();
@@ -58,10 +62,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtFn = new System.Windows.Forms.TextBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -123,6 +123,40 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Config";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1572, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 39);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "F";
+            // 
+            // txtFn
+            // 
+            this.txtFn.Location = new System.Drawing.Point(1615, 57);
+            this.txtFn.Name = "txtFn";
+            this.txtFn.Size = new System.Drawing.Size(76, 46);
+            this.txtFn.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1298, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 39);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "是否回值";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1441, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 39);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "S";
             // 
             // cmbRecv
             // 
@@ -530,40 +564,6 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1441, 57);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 39);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "S";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1298, 129);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 39);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "是否回值";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1572, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 39);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "F";
-            // 
-            // txtFn
-            // 
-            this.txtFn.Location = new System.Drawing.Point(1615, 57);
-            this.txtFn.Name = "txtFn";
-            this.txtFn.Size = new System.Drawing.Size(76, 46);
-            this.txtFn.TabIndex = 19;
             // 
             // Form1
             // 

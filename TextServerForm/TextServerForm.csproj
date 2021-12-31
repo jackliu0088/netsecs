@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Secs4Net.Json\Secs4Net.Json.csproj" />
+    <ProjectReference Include="..\src\Secs4Net.Sml\Secs4Net.Sml.csproj" />
+    <ProjectReference Include="..\src\Secs4Net\Secs4Net.csproj" />
+  </ItemGroup>
+
+</Project>

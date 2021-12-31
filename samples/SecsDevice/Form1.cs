@@ -16,7 +16,7 @@ namespace SecsDevice
         SecsGem? _secsGem;
         HsmsConnection? _connector;
         readonly ISecsGemLogger _logger;
-        readonly BindingList<PrimaryMessageWrapper> recvBuffer = new BindingList<PrimaryMessageWrapper>();
+        readonly BindingList<PrimaryMessageWrapper> _recvBuffer = new BindingList<PrimaryMessageWrapper>();
         CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         public Form1()
@@ -29,7 +29,7 @@ namespace SecsDevice
             numPort.DataBindings.Add("Enabled", btnEnable, "Enabled");
             numDeviceId.DataBindings.Add("Enabled", btnEnable, "Enabled");
             numBufferSize.DataBindings.Add("Enabled", btnEnable, "Enabled");
-            recvMessageBindingSource.DataSource = recvBuffer;
+            recvMessageBindingSource.DataSource = _recvBuffer;
             Application.ThreadException += (sender, e) => MessageBox.Show(e.Exception.ToString());
             AppDomain.CurrentDomain.UnhandledException += (sender, e) => MessageBox.Show(e.ExceptionObject.ToString());
             _logger = new SecsLogger(this);
@@ -58,7 +58,7 @@ namespace SecsDevice
 
             _connector.ConnectionChanged += delegate
             {
-                base.Invoke((MethodInvoker)delegate
+                Invoke((MethodInvoker)delegate
                 {
                     lbStatus.Text = _connector.State.ToString();
                 });
@@ -72,7 +72,7 @@ namespace SecsDevice
             {
                 await foreach (var primaryMessage in _secsGem.GetPrimaryMessageAsync(_cancellationTokenSource.Token))
                 {
-                    recvBuffer.Add(primaryMessage);
+                    _recvBuffer.Add(primaryMessage);
                 }
             }
             catch (OperationCanceledException)
@@ -98,8 +98,8 @@ namespace SecsDevice
             _secsGem = null;
             btnEnable.Enabled = true;
             btnDisable.Enabled = false;
-            lbStatus.Text = "Disable";
-            recvBuffer.Clear();
+            lbStatus.Text = @"Disable";
+            _recvBuffer.Clear();
             richTextBox1.Clear();
         }
 
@@ -137,7 +137,7 @@ namespace SecsDevice
             }
 
             await recv.TryReplyAsync(txtReplySeconary.Text.ToSecsMessage());
-            recvBuffer.Remove(recv);
+            _recvBuffer.Remove(recv);
             txtRecvPrimary.Clear();
         }
 
@@ -150,7 +150,7 @@ namespace SecsDevice
 
             await recv.TryReplyAsync();
 
-            recvBuffer.Remove(recv);
+            _recvBuffer.Remove(recv);
             txtRecvPrimary.Clear();
         }
 
@@ -166,7 +166,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"<-- [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -177,9 +177,13 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Black;
-                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"--> [0x{id:X8}] {msg.ToSml() + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
+                    if (_form.richTextBox1.Text.Length > 2000) 
+                    {
+                        //_form.richTextBox1.Lines
+                    }
                 });
             }
 
@@ -188,7 +192,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Blue;
-                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " == " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -199,7 +203,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Green;
-                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -210,10 +214,10 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Red;
-                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
-                    _form.richTextBox1.AppendText($"{message?.ToSml() + " == " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
+                    _form.richTextBox1.AppendText($"{message?.ToSml() + " == " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionColor = Color.Gray;
-                    _form.richTextBox1.AppendText($"{ex + " \n--> " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{ex + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -224,7 +228,7 @@ namespace SecsDevice
                 _form.Invoke((MethodInvoker)delegate
                 {
                     _form.richTextBox1.SelectionColor = Color.Yellow;
-                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString()}\n");
+                    _form.richTextBox1.AppendText($"{msg + " \n--> " + DateTime.UtcNow.ToString("g")}\n");
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -254,7 +258,7 @@ namespace SecsDevice
 
             if (_secsGem is null || _connector?.State != ConnectionState.Selected)
             {
-                MessageBox.Show("Gem未实例化/未连接");
+                MessageBox.Show(@"Gem未实例化/未连接");
                 return;
             }
 
@@ -264,19 +268,19 @@ namespace SecsDevice
                 var s = Encoding.Default.GetBytes(txtSn.Text.Trim());
                 var f = Encoding.Default.GetBytes(txtFn.Text.Trim());
 
-                var S1F15 = new SecsMessage(1, 5, true)
+                var s1F15 = new SecsMessage(1, 5)
                 {
                     //Name = "createS1f14",
                     Name = "aaas",
                     SecsItem = null
 
                 };
-                var str= S1F15.ToSml();
+                var str= s1F15.ToSml();
 #if DEBUG
                 Debug.Print(str);
 #endif
 
-                var reply = await _secsGem.SendAsync(S1F15);
+                var reply = await _secsGem.SendAsync(s1F15);
                 txtRecvSecondary.Text = reply.ToSml();
             }
             catch (SecsException ex)
