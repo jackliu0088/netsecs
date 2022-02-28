@@ -480,13 +480,13 @@ public sealed class HsmsConnection : BackgroundService, ISecsConnection, IAsyncD
         }
     }
 
-    void StopT8Timer()
+    private void StopT8Timer()
     {
         _logger.Debug($"Stop T8 Timer: {T8 / 1000} sec.");
         _timer8.Change(Timeout.Infinite, Timeout.Infinite);
     }
 
-    void StartT8Timer()
+    private void StartT8Timer()
     {
         _logger.Debug($"Start T8 Timer: {T8 / 1000} sec.");
         _timer8.Change(T8, Timeout.Infinite);

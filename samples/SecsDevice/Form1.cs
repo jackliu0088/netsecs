@@ -16,8 +16,8 @@ namespace SecsDevice
         SecsGem? _secsGem;
         HsmsConnection? _connector;
         readonly ISecsGemLogger _logger;
-        readonly BindingList<PrimaryMessageWrapper> _recvBuffer = new BindingList<PrimaryMessageWrapper>();
-        CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        readonly BindingList<PrimaryMessageWrapper> _recvBuffer = new();
+        CancellationTokenSource _cancellationTokenSource = new();
 
         public Form1()
         {
@@ -35,7 +35,7 @@ namespace SecsDevice
             _logger = new SecsLogger(this);
         }
 
-        private async void btnEnable_Click(object sender, EventArgs e)
+        private async void BtnEnable_Click(object sender, EventArgs e)
         {
             _secsGem?.Dispose();
 
@@ -81,7 +81,7 @@ namespace SecsDevice
             }
         }
 
-        private async void btnDisable_Click(object sender, EventArgs e)
+        private async void BtnDisable_Click(object sender, EventArgs e)
         {
             if (!_cancellationTokenSource.IsCancellationRequested)
             {
@@ -154,7 +154,7 @@ namespace SecsDevice
             txtRecvPrimary.Clear();
         }
 
-        class SecsLogger : ISecsGemLogger
+        private class SecsLogger : ISecsGemLogger
         {
             readonly Form1 _form;
             internal SecsLogger(Form1 form)
@@ -252,7 +252,7 @@ namespace SecsDevice
             return _secsGem;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
             
 

@@ -215,7 +215,7 @@ public sealed class SecsGem : ISecsGem, IDisposable
     public static void EncodeMessage(SecsMessage msg, int id, ushort deviceId, ArrayPoolBufferWriter<byte> buffer)
     {
         // reserve 4 byte for total length
-        var lengthBytes = buffer.GetSpan(sizeof(int)).Slice(0, sizeof(int));
+        var lengthBytes = buffer.GetSpan(sizeof(int))[..sizeof(int)];
         buffer.Advance(sizeof(int));
         new MessageHeader(
             deviceId,

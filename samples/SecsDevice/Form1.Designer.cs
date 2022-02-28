@@ -184,7 +184,7 @@
             this.btnUserSeed.TabIndex = 13;
             this.btnUserSeed.Text = "自定义发送";
             this.btnUserSeed.UseVisualStyleBackColor = true;
-            this.btnUserSeed.Click += new System.EventHandler(this.button1_Click);
+            this.btnUserSeed.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label4
             // 
@@ -259,7 +259,7 @@
             this.btnDisable.TabIndex = 7;
             this.btnDisable.Text = "Disable";
             this.btnDisable.UseVisualStyleBackColor = true;
-            this.btnDisable.Click += new System.EventHandler(this.btnDisable_Click);
+            this.btnDisable.Click += new System.EventHandler(this.BtnDisable_Click);
             // 
             // btnEnable
             // 
@@ -270,7 +270,7 @@
             this.btnEnable.TabIndex = 6;
             this.btnEnable.Text = "Enable";
             this.btnEnable.UseVisualStyleBackColor = true;
-            this.btnEnable.Click += new System.EventHandler(this.btnEnable_Click);
+            this.btnEnable.Click += new System.EventHandler(this.BtnEnable_Click);
             // 
             // numPort
             // 
