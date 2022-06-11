@@ -179,7 +179,7 @@ namespace TextServer
                     
                     _form.richTextBox1.SelectionColor = Color.White;
                     AddLine(_form.richTextBox1,
-                        $"<--[0x{id:X8}]{DateTime.Now:yyyy-MM-dd hh:mm:ss fff)}: " + msg.ToSml());
+                        $"<--[0x{id:X8}]{DateTime.Now:yyyy-MM-dd hh:mm:ss fff)}:" + msg.ToSml());
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                 });
@@ -193,9 +193,9 @@ namespace TextServer
                     _form.richTextBox1.SelectionColor = Color.White;
                     AddLine(_form.richTextBox1,
                         $"--> [0x{id:X8}] {DateTime.Now:yyyy-MM-dd hh:mm:ss fff)}: " + msg.ToSml());
-                    AddLine(_form.richTextBox1,
-                        $"{DateTime.Now:yyyy-MM-dd hh:mm:ss fff}: " +
-                        Convert.ToHexString(Encoding.Default.GetBytes(msg.ToSml())));
+                    //AddLine(_form.richTextBox1,
+                    //    $"{DateTime.Now:yyyy-MM-dd hh:mm:ss fff}: " +
+                    //    Convert.ToHexString(Encoding.Default.GetBytes(msg.ToSml())));
                     _form.richTextBox1.SelectionStart = _form.richTextBox1.TextLength;
                     _form.richTextBox1.ScrollToCaret();
                   
